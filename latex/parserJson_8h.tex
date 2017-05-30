@@ -1,0 +1,135 @@
+\hypertarget{parserJson_8h}{}\section{include/parser\+Json.h File Reference}
+\label{parserJson_8h}\index{include/parser\+Json.\+h@{include/parser\+Json.\+h}}
+
+
+Module to parse data to Json string.  
+
+
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include $<$actor.\+h$>$}\\*
+Include dependency graph for parser\+Json.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{parserJson_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{parserJson_8h_a4c799be6272b52be845ca68594a679fb}{parse\+Server\+Info} (void)
+\begin{DoxyCompactList}\small\item\em get server information \end{DoxyCompactList}\item 
+string \hyperlink{parserJson_8h_a812bf352d4eda2bca6cab059023d800d}{parse\+Actors} (vector$<$ \hyperlink{classActor}{Actor} $\ast$ $>$ Actors)
+\begin{DoxyCompactList}\small\item\em get all Actors in Json fromat \end{DoxyCompactList}\item 
+string \hyperlink{parserJson_8h_a2f09e2fb6c937c326ee0a32c5ba949b3}{parse\+Actors\+By\+Key} (vector$<$ \hyperlink{classActor}{Actor} $\ast$ $>$ Actors, string key, string value)
+\begin{DoxyCompactList}\small\item\em get Actors that specified filed equals specified value \end{DoxyCompactList}\item 
+string \hyperlink{parserJson_8h_a46431d94c29661e93f1f7a6cf7c794ea}{parse\+File\+Info} (string file\+Path)
+\begin{DoxyCompactList}\small\item\em get information about file \end{DoxyCompactList}\item 
+string \hyperlink{parserJson_8h_a3eea9e035ca997c571ef71dac88b8372}{parse\+File\+Content} (string file\+Path)
+\begin{DoxyCompactList}\small\item\em get information about file content \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Module to parse data to Json string. 
+
+
+
+\subsection{Function Documentation}
+\index{parser\+Json.\+h@{parser\+Json.\+h}!parse\+Actors@{parse\+Actors}}
+\index{parse\+Actors@{parse\+Actors}!parser\+Json.\+h@{parser\+Json.\+h}}
+\subsubsection[{\texorpdfstring{parse\+Actors(vector$<$ Actor $\ast$ $>$ Actors)}{parseActors(vector< Actor * > Actors)}}]{\setlength{\rightskip}{0pt plus 5cm}string parse\+Actors (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Actor} $\ast$ $>$}]{Actors}
+\end{DoxyParamCaption}
+)}\hypertarget{parserJson_8h_a812bf352d4eda2bca6cab059023d800d}{}\label{parserJson_8h_a812bf352d4eda2bca6cab059023d800d}
+
+
+get all Actors in Json fromat 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Actors} & -\/ vector of Actors to parse in Json \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string in Json format that contain information about all Actors 
+\end{DoxyReturn}
+\index{parser\+Json.\+h@{parser\+Json.\+h}!parse\+Actors\+By\+Key@{parse\+Actors\+By\+Key}}
+\index{parse\+Actors\+By\+Key@{parse\+Actors\+By\+Key}!parser\+Json.\+h@{parser\+Json.\+h}}
+\subsubsection[{\texorpdfstring{parse\+Actors\+By\+Key(vector$<$ Actor $\ast$ $>$ Actors, string key, string value)}{parseActorsByKey(vector< Actor * > Actors, string key, string value)}}]{\setlength{\rightskip}{0pt plus 5cm}string parse\+Actors\+By\+Key (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Actor} $\ast$ $>$}]{Actors, }
+\item[{string}]{key, }
+\item[{string}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{parserJson_8h_a2f09e2fb6c937c326ee0a32c5ba949b3}{}\label{parserJson_8h_a2f09e2fb6c937c326ee0a32c5ba949b3}
+
+
+get Actors that specified filed equals specified value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Actors} & -\/ vector of Actors to filter and parse in Json \\
+\hline
+{\em key} & -\/ field on which to filter Actors \\
+\hline
+{\em value} & -\/ content of field to filter Actors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string in Json format that contain information about server 
+\end{DoxyReturn}
+\index{parser\+Json.\+h@{parser\+Json.\+h}!parse\+File\+Content@{parse\+File\+Content}}
+\index{parse\+File\+Content@{parse\+File\+Content}!parser\+Json.\+h@{parser\+Json.\+h}}
+\subsubsection[{\texorpdfstring{parse\+File\+Content(string file\+Path)}{parseFileContent(string filePath)}}]{\setlength{\rightskip}{0pt plus 5cm}string parse\+File\+Content (
+\begin{DoxyParamCaption}
+\item[{string}]{file\+Path}
+\end{DoxyParamCaption}
+)}\hypertarget{parserJson_8h_a3eea9e035ca997c571ef71dac88b8372}{}\label{parserJson_8h_a3eea9e035ca997c571ef71dac88b8372}
+
+
+get information about file content 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & -\/ path to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string in Json format that contain information about file content 
+\end{DoxyReturn}
+\index{parser\+Json.\+h@{parser\+Json.\+h}!parse\+File\+Info@{parse\+File\+Info}}
+\index{parse\+File\+Info@{parse\+File\+Info}!parser\+Json.\+h@{parser\+Json.\+h}}
+\subsubsection[{\texorpdfstring{parse\+File\+Info(string file\+Path)}{parseFileInfo(string filePath)}}]{\setlength{\rightskip}{0pt plus 5cm}string parse\+File\+Info (
+\begin{DoxyParamCaption}
+\item[{string}]{file\+Path}
+\end{DoxyParamCaption}
+)}\hypertarget{parserJson_8h_a46431d94c29661e93f1f7a6cf7c794ea}{}\label{parserJson_8h_a46431d94c29661e93f1f7a6cf7c794ea}
+
+
+get information about file 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & -\/ path to file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string in Json format that contain information about file 
+\end{DoxyReturn}
+\index{parser\+Json.\+h@{parser\+Json.\+h}!parse\+Server\+Info@{parse\+Server\+Info}}
+\index{parse\+Server\+Info@{parse\+Server\+Info}!parser\+Json.\+h@{parser\+Json.\+h}}
+\subsubsection[{\texorpdfstring{parse\+Server\+Info(void)}{parseServerInfo(void)}}]{\setlength{\rightskip}{0pt plus 5cm}string parse\+Server\+Info (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{parserJson_8h_a4c799be6272b52be845ca68594a679fb}{}\label{parserJson_8h_a4c799be6272b52be845ca68594a679fb}
+
+
+get server information 
+
+\begin{DoxyReturn}{Returns}
+string in Json format that contain information about server 
+\end{DoxyReturn}
