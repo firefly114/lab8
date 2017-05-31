@@ -16,6 +16,7 @@ Actor::Actor(int id, string name, string nation, int age) {
     _age = age;
 }
 
+
 int Actor::id(){ return _id; }
 string Actor::name(){ return _name; }
 string Actor::nation(){ return _nation; }
