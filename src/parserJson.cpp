@@ -6,6 +6,7 @@
 #include <fstream>
 #include <cctype>
 #include <string.h>
+#include <request.h>
 
 using namespace std;
 
@@ -50,32 +51,39 @@ string parseActors(vector<Actor*> Actors){
     return jsonString;
 }
 
-string parseActorsByKey(vector<Actor*> Actors, string key, string value){
-    if(Actors[0]->valueByField(key) != "NOT FIELD"){
-        json_t * json = json_array();
-        bool isFound = false;
-        for(Actor * Actor : Actors){
-            if(Actor->valueByField(key) == value){
-                isFound = true;
-                json_t * pl = json_object();
-                json_object_set_new(pl, "id", json_integer(Actor->id()));
-                json_object_set_new(pl, "name", json_string(Actor->name().c_str()));
-                json_object_set_new(pl, "age", json_integer(Actor->age()));
-                json_object_set_new(pl, "nation", json_string(Actor->nation().c_str()));
-                json_array_append(json, pl);
-                json_decref(pl);
-            } 
+string parseActorsByKey(vector<Actor*> Actors, vector<keyValue> KeyVal){
+    for (unsigned int i = 0; i < KeyVal.size();i++) {
+        if(Actors[0]->valueByField(KeyVal[i]._key) == "NOT FIELD"){
+            return "NOT FOUND";
         }
-        char * str = json_dumps(json, JSON_INDENT(2) | JSON_PRESERVE_ORDER);
-        string jsonString(str);
-        free(str);
-        json_decref(json);
-        if(!isFound) return "NOT FOUND";
-        return jsonString;
-    } else {
-        return "NOT FOUND";
     }
-    
+    json_t * json = json_array();
+    bool isFound = false;
+    bool isValid = true;
+    for(Actor * Actor : Actors){
+        for (unsigned int i = 0; i < KeyVal.size();i++) {
+            if(Actor->valueByField(KeyVal[i]._key) != KeyVal[i]._value){
+                isValid = false;
+            }
+        }
+        if(isValid){
+            isFound = true;
+            json_t * pl = json_object();
+            json_object_set_new(pl, "id", json_integer(Actor->id()));
+            json_object_set_new(pl, "name", json_string(Actor->name().c_str()));
+            json_object_set_new(pl, "age", json_integer(Actor->age()));
+            json_object_set_new(pl, "nation", json_string(Actor->nation().c_str()));
+            json_array_append(json, pl);
+            json_decref(pl);
+        }
+        isValid = true; 
+    }
+    char * str = json_dumps(json, JSON_INDENT(2) | JSON_PRESERVE_ORDER);
+    string jsonString(str);
+    free(str);
+    json_decref(json);
+    if(!isFound) return "NOT FOUND";
+    return jsonString;
 }
 
 string parseFileInfo(string filePath){

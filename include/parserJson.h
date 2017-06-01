@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <actor.h>
+#include <request.h>
 
 using namespace std;
 
@@ -27,11 +28,11 @@ string parseActors(vector<Actor*> Actors);
 /**
     @brief get Actors that specified filed equals specified value
     @param Actors - vector of Actors to filter and parse in Json 
-    @param key - field on which to filter Actors
+    @param keyValue - field on which to filter Actors
     @param value - content of field to filter Actors
     @return string in Json format that contain information about server
 */
-string parseActorsByKey(vector<Actor*> Actors, string key, string value);
+string parseActorsByKey(vector<Actor*> Actors, vector<keyValue> KeyVal);
 
 /**
     @brief get information about file

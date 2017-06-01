@@ -6,9 +6,18 @@
 #define REQUEST_H
 
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
+/**
+    @struct keyValue
+    @brief defines key and value for request to server
+*/
+
+struct keyValue {
+    string _key;
+    string _value;
+};
 /**
     @class Request
     @brief defines a client request
@@ -17,7 +26,7 @@ class Request{
     string _method;
     string _path;
     string _key;
-    string _value;
+    vector <keyValue> _keyVal;
 public:
     /**
         @brief default public constructor for Request
@@ -48,16 +57,10 @@ public:
     string path();
     
     /**
-        @brief get specified key in path from client Request
-        @return string that defines specified key in path of Request
+        @brief get specified key and value in path from client Request
+        @return vector of structs KeyValue that defines specified key and values in path of Request
     */
-    string key();
-    
-    /**
-        @brief get specified value in path from client Request
-        @return string that defines specified value in path of Request
-    */
-    string value();
+    vector <keyValue> keyVal();
 };
 
 #endif //REQUEST_H

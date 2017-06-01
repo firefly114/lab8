@@ -17,7 +17,7 @@ Response::Response(Request * request, vector<Actor*> Actors){
         else if(request->path() == "/favorites") content = parseActors(Actors);
         else if(request->path().find("/favorites?") != string::npos ||
                 request->path().find("/favorites/") != string::npos) {
-            content = parseActorsByKey(Actors, request->key(), request->value());
+            content = parseActorsByKey(Actors, request->keyVal());
         } else if(request->path() == "/file") content = parseFileInfo(file);
         else if(request->path() == "/file/data") content = parseFileContent(file);
         else {
